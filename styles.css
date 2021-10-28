@@ -58,10 +58,10 @@
     font-weight: bold;
   }
   .move-coins {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+    /* display: inline-block; */
+    width: 30px;
+    height: 30px;
+    /* border-radius: 50%; */
     background-color: var(--coins-color);
   }
   

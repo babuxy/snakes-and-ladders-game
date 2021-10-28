@@ -170,7 +170,7 @@ var SnakeAndLadderBoard = (function() {
   }
 
 
-  // Need help to create ladder
+  // Dynamic ladder creation 
   function createLadder(ladderClass, noOfSteps) {
     const ladderNode = document.querySelector(ladderClass);
     for (i = 0; i < noOfSteps; i++) {
