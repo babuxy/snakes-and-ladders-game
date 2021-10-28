@@ -1,5 +1,11 @@
 "use strict";
 
+function dosomething(val) {
+  document.querySelector(".js-button-1").innerHTML = document.getElementById("name").value;
+  document.querySelector(".js-button-2").innerHTML = document.getElementById("name").value;
+} //https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
+
+
 var SnakeAndLadderBoard = function () {
   function rollDice() {
     return Math.floor(Math.random() * 6 + 1);
@@ -20,6 +26,7 @@ var SnakeAndLadderBoard = function () {
 
   function getScoreOnSnakeAndLadder(score) {
     switch (score) {
+      //Begin ladder climb
       case 1:
         score = 23;
         break;
@@ -32,57 +39,60 @@ var SnakeAndLadderBoard = function () {
         score = 42;
         break;
 
-      case 36:
-        score = 58;
-        break;
-
       case 29:
         score = 85;
         break;
 
-      case 82:
-        score = 100;
-        break;
-
-      case 71:
-        score = 92;
+      case 36:
+        score = 58;
         break;
 
       case 49:
         score = 67;
         break;
 
-      case 64:
-        score = 59;
+      case 71:
+        score = 92;
         break;
 
-      case 98:
-        score = 48;
+      case 82:
+        score = 100;
         break;
+      // End of ladder climb
+      //Begin snake gobbling
 
-      case 31:
-        score = 28;
+      case 15:
+        score = 2;
         break;
 
       case 26:
         score = 8;
         break;
 
-      case 15:
-        score = 2;
+      case 31:
+        score = 28;
         break;
 
-      case 93:
-        score = 72;
+      case 39:
+        score = 19;
+        break;
+
+      case 64:
+        score = 59;
         break;
 
       case 73:
         score = 17;
         break;
 
-      case 39:
-        score = 19;
+      case 93:
+        score = 72;
         break;
+
+      case 98:
+        score = 48;
+        break;
+      //End snake gobbling
     }
 
     return score;
@@ -139,8 +149,10 @@ var SnakeAndLadderBoard = function () {
         inactive = _getActivePlayer.inactive;
 
     showActiveInactivePlayer(active, inactive); //Display scores
+    // document.querySelector(".js-dice-result").innerHTML = number + " Barnali" + document.getElementById("name").value;
 
-    document.querySelector(".js-dice-result").innerHTML = number + "  Barnali"; // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
+    document.querySelector(".js-dice-result").innerHTML = number + document.getElementById("name").value;
+    document.querySelector(".js-button-1").innerHTML = document.getElementById("name").value; // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
 
     playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
     playerOneScore = getScoreOnSnakeAndLadder(playerOneScore);
@@ -175,7 +187,8 @@ var SnakeAndLadderBoard = function () {
       var getNewBoardItem = ".board-item-".concat(playerTwoScore);
       document.querySelector(getNewBoardItem).style.setProperty("--coins-color", "green");
     }
-  };
+  }; // Dynamic ladder creation 
+
 
   function createLadder(ladderClass, noOfSteps) {
     var ladderNode = document.querySelector(ladderClass);
@@ -194,7 +207,7 @@ var SnakeAndLadderBoard = function () {
 }();
 
 window.addEventListener("load", function (event) {
-  // SnakeAndLadderBoard.createLadder(".ladder-1", 4);
+  SnakeAndLadderBoard.createLadder(".ladder-1", 4);
   SnakeAndLadderBoard.createLadder(".ladder-2", 7);
   SnakeAndLadderBoard.createLadder(".ladder-3", 19);
   SnakeAndLadderBoard.createLadder(".ladder-4", 7);

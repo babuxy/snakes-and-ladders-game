@@ -1,15 +1,12 @@
 
 
-function hello(){  
-   
-  var x = document.getElementById("name").value;
-  alert(x);
-console.log(x);
-  }  
-
+function dosomething(val){
+  document.querySelector(".js-button-1").innerHTML = document.getElementById("name").value;
+  document.querySelector(".js-button-2").innerHTML = document.getElementById("name").value;
+}
 
 //https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
-var SnakeAndLadderBoard = (function() {
+ const SnakeAndLadderBoard = (function() {
   function rollDice() {
     return Math.floor(Math.random() * 6 + 1);
   }
@@ -128,7 +125,7 @@ var SnakeAndLadderBoard = (function() {
   }
 
   
-  const playerOne = (x) => {
+  const playerOne = () => {
         //Begin roll dice
       const number = rollDice();
   
@@ -140,7 +137,10 @@ var SnakeAndLadderBoard = (function() {
       showActiveInactivePlayer(active, inactive);
   
      //Display scores
-      document.querySelector(".js-dice-result").innerHTML = number + x;
+      // document.querySelector(".js-dice-result").innerHTML = number + " Barnali" + document.getElementById("name").value;
+      document.querySelector(".js-dice-result").innerHTML = number + document.getElementById("name").value;
+
+      document.querySelector(".js-button-1").innerHTML = document.getElementById("name").value;
       // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
   
       playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
@@ -185,7 +185,15 @@ var SnakeAndLadderBoard = (function() {
 
 
   // Dynamic ladder creation 
-  function createLadder(ladderClass, noOfSteps) {
+  // function createLadder(ladderClass, noOfSteps) {
+  //   const ladderNode = document.querySelector(ladderClass);
+  //   for (i = 0; i < noOfSteps; i++) {
+  //     const ladderSpan = document.createElement("span");
+  //     ladderNode.appendChild(ladderSpan);
+  //   }
+  // }
+
+    const createLadder = (ladderClass, noOfSteps) => {
     const ladderNode = document.querySelector(ladderClass);
     for (i = 0; i < noOfSteps; i++) {
       const ladderSpan = document.createElement("span");
