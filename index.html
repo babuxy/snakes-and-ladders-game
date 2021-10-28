@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +13,15 @@
 <body>
   <div class="container">
     <section>
+      <div class="playernames">
+      <h2>HTML Input Text Box</h2>
+
+      <label for="name">Enter Name:</label>
+  
+      <input type="text" id="name" name="name">
+      <button name="button" type="button"  onclick="hello()">Click Here</button>  
+    </div>
+
       <div class="board">
         <div class="board-item board-item-100">100
           <span class="move-coins"></span>
@@ -334,7 +344,7 @@
       </div>
     </section>
    
-   <p></p>
+    <p></p>
 
    <section>
     <div class="dice-result-container" id="player-name">Dice score:
@@ -344,6 +354,7 @@
    
     </section>
     
+    <section>
     <div class="players">
       <!-- <input type="text" name="fullName3" value = "Player Name 3" id="fullName3" required>
       <input type="text" name="fullName4" value = "Player Name 4" id="fullName4" required>
@@ -351,10 +362,9 @@
       <button class="button button-1 js-button-1" onClick="SnakeAndLadderBoard.playerOne()">Barnali</button>
       <button class="button button-2 js-button-2" onClick="SnakeAndLadderBoard.playerTwo()">Rit</button>
     </div>
-  
+  </section>
  
   </div>
   <script type="text/javascript" src="./main.js"></script>
 </body>
 
-</html>

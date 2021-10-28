@@ -1,5 +1,14 @@
 
 
+function hello(){  
+   
+  var x = document.getElementById("name").value;
+  alert(x);
+console.log(x);
+  }  
+
+
+//https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
 var SnakeAndLadderBoard = (function() {
   function rollDice() {
     return Math.floor(Math.random() * 6 + 1);
@@ -19,6 +28,7 @@ var SnakeAndLadderBoard = (function() {
 
   function getScoreOnSnakeAndLadder(score) {
     switch (score) {
+  //Begin ladder climb
       case 1:
         score = 23;
         break;
@@ -28,45 +38,49 @@ var SnakeAndLadderBoard = (function() {
       case 21:
         score = 42;
         break;
-      case 36:
-        score = 58;
-        break;
       case 29:
         score = 85;
         break;
-      case 82:
-        score = 100;
-        break;
-      case 71:
-        score = 92;
+      case 36:
+        score = 58;
         break;
       case 49:
         score = 67;
         break;
-      case 64:
-        score = 59;
+      case 71:
+        score = 92;
         break;
-      case 98:
-        score = 48;
+      case 82:
+        score = 100;
         break;
-      case 31:
-        score = 28;
+  // End of ladder climb
+
+  //Begin snake gobbling
+      case 15:
+        score = 2;
         break;
       case 26:
         score = 8;
         break;
-      case 15:
-        score = 2;
-        break;
-      case 93:
-        score = 72;
-        break;
-      case 73:
-        score = 17;
+      case 31:
+        score = 28;
         break;
       case 39:
         score = 19;
         break;
+      case 64:
+        score = 59;
+        break;
+      case 73:
+        score = 17;
+        break;
+      case 93:
+        score = 72;
+        break;
+      case 98:
+        score = 48;
+        break;
+  //End snake gobbling
     }
     return score;
   }
@@ -114,7 +128,7 @@ var SnakeAndLadderBoard = (function() {
   }
 
   
-  const playerOne = () => {
+  const playerOne = (x) => {
         //Begin roll dice
       const number = rollDice();
   
@@ -126,7 +140,7 @@ var SnakeAndLadderBoard = (function() {
       showActiveInactivePlayer(active, inactive);
   
      //Display scores
-      document.querySelector(".js-dice-result").innerHTML = number + "  Barnali";
+      document.querySelector(".js-dice-result").innerHTML = number + x;
       // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
   
       playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
