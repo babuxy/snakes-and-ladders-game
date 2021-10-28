@@ -1,12 +1,16 @@
 
-
-// function hello(){  
+let x, y="";
+const clickEvent = () => {  
    
-//   var x = document.getElementById("name").value;
-//   alert(x);
-// console.log(x);
-//   }  
+ x = document.getElementById("firstname").value;  
+ y = document.getElementById("secondname").value;  
+  alert(x);
+console.log(x);
+console.log(y);
+  }  
 
+  const repImage = '<img src="./dice1.png" id="imagesize">';
+  console.log(repImage);
 
 //https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
 var SnakeAndLadderBoard = (function() {
@@ -17,7 +21,17 @@ var SnakeAndLadderBoard = (function() {
   let playerOneScore = 0;
   let playerTwoScore = 0;
 
-  function checkScoreGreaterThan100(score, number) {
+  // function checkScoreGreaterThan100(score, number) {
+  //   if (score + number > 100) {
+  //     score;
+  //   } else {
+  //     score = score + number;
+  //   }
+  //   return score;
+  // }
+
+  
+  const checkScoreGreaterThan100 = (score, number) => {
     if (score + number > 100) {
       score;
     } else {
@@ -85,21 +99,22 @@ var SnakeAndLadderBoard = (function() {
     return score;
   };
 
-  // function showActiveInactivePlayer(active, inactive) {
-  //   const buttonOne = document.querySelector(".js-button-1");
-  //   const buttonTwo = document.querySelector(".js-button-2");
-  //   if (active === 1) {
-  //     buttonTwo.classList.add("disabled");
-  //     buttonOne.classList.remove("disabled");
-  //   } else {
-  //     buttonOne.classList.add("disabled");
-  //     buttonTwo.classList.remove("disabled");
-  //   }
-  // }
 
 
-
-    function showActiveInactivePlayer(active, inactive) {
+//     //Enabling disabling players
+// function showActiveInactivePlayer(active, inactive) {
+//   const buttonOne = document.querySelector(".js-button-1");
+//   const buttonTwo = document.querySelector(".js-button-2");
+//   if (active === 1) {
+//     buttonTwo.classList.add("disabled");
+//     buttonOne.classList.remove("disabled");
+//   } else {
+//     buttonOne.classList.add("disabled");
+//     buttonTwo.classList.remove("disabled");
+//   }
+// }
+  //Enabling disabling players
+const showActiveInactivePlayer = (active, inactive) => {
   const buttonOne = document.querySelector(".js-button-1");
   const buttonTwo = document.querySelector(".js-button-2");
   if (active === 1) {
@@ -119,8 +134,10 @@ var SnakeAndLadderBoard = (function() {
   }
 
   function clearPreviousPosition(score) {
+    // console.log(score);
     if (score > 0) {
       let getBoardItem = `.board-item-${score}`;
+      console.log(getBoardItem);
       return document
         .querySelector(getBoardItem)
         .style.setProperty("--coins-color", "transparent");
@@ -141,9 +158,12 @@ var SnakeAndLadderBoard = (function() {
   
      //Display scores
       // document.querySelector(".js-dice-result").innerHTML = number + " Barnali" + document.getElementById("name").value;
-      document.querySelector(".js-dice-result").innerHTML = number + document.getElementById("name").value;
+      // if(number <= 6) {
+      //   document.querySelector(".js-dice-result").innerHTML = "./dice1.png"
+      // }
+      document.querySelector(".js-dice-result").innerHTML = document.getElementById("firstname").value +"'s score = " + number  + repImage;
 
-      document.querySelector(".js-button-1").innerHTML = document.getElementById("name").value;
+      document.querySelector(".js-button-1").innerHTML = x;
       // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
   
       playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
@@ -171,7 +191,14 @@ var SnakeAndLadderBoard = (function() {
     showActiveInactivePlayer(active, inactive);
 
     //Display scores
-    document.querySelector(".js-dice-result").innerHTML = number + " Rit";
+    // document.querySelector(".js-dice-result").innerHTML = number + " Rit";
+    // document.querySelector(".js-dice-result").innerHTML = "Rit" +"'s score = " + number  ;
+
+    // document.querySelector(".js-button-2").innerHTML = "Rit";
+
+    document.querySelector(".js-dice-result").innerHTML = document.getElementById("secondname").value +"'s score = " + number  ;
+
+    document.querySelector(".js-button-2").innerHTML = y;
 
     playerTwoScore = checkScoreGreaterThan100(playerTwoScore, number);
     playerTwoScore = getScoreOnSnakeAndLadder(playerTwoScore);
@@ -192,7 +219,7 @@ var SnakeAndLadderBoard = (function() {
     const ladderNode = document.querySelector(ladderClass);
     for (i = 0; i < noOfSteps; i++) {
       const ladderSpan = document.createElement("span");
-      console.log(ladderSpan);
+      // console.log(ladderSpan);
       ladderNode.appendChild(ladderSpan);
     }
   }

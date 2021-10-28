@@ -1,11 +1,11 @@
 "use strict";
 
-function dosomething(val) {
-  document.querySelector(".js-button-1").innerHTML = document.getElementById("name").value;
-  document.querySelector(".js-button-2").innerHTML = document.getElementById("name").value;
-} //https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
-
-
+// function hello(){  
+//   var x = document.getElementById("name").value;
+//   alert(x);
+// console.log(x);
+//   }  
+//https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
 var SnakeAndLadderBoard = function () {
   function rollDice() {
     return Math.floor(Math.random() * 6 + 1);
@@ -24,7 +24,7 @@ var SnakeAndLadderBoard = function () {
     return score;
   }
 
-  function getScoreOnSnakeAndLadder(score) {
+  var getScoreOnSnakeAndLadder = function getScoreOnSnakeAndLadder(score) {
     switch (score) {
       //Begin ladder climb
       case 1:
@@ -96,7 +96,8 @@ var SnakeAndLadderBoard = function () {
     }
 
     return score;
-  } // function showActiveInactivePlayer(active, inactive) {
+  }; //     //Enabling disabling players
+  // function showActiveInactivePlayer(active, inactive) {
   //   const buttonOne = document.querySelector(".js-button-1");
   //   const buttonTwo = document.querySelector(".js-button-2");
   //   if (active === 1) {
@@ -107,6 +108,7 @@ var SnakeAndLadderBoard = function () {
   //     buttonTwo.classList.remove("disabled");
   //   }
   // }
+  //Enabling disabling players
 
 
   var showActiveInactivePlayer = function showActiveInactivePlayer(active, inactive) {
@@ -132,8 +134,11 @@ var SnakeAndLadderBoard = function () {
   }
 
   function clearPreviousPosition(score) {
+    console.log(score);
+
     if (score > 0) {
       var getBoardItem = ".board-item-".concat(score);
+      console.log(getBoardItem);
       return document.querySelector(getBoardItem).style.setProperty("--coins-color", "transparent");
     }
   }
@@ -194,7 +199,8 @@ var SnakeAndLadderBoard = function () {
     var ladderNode = document.querySelector(ladderClass);
 
     for (i = 0; i < noOfSteps; i++) {
-      var ladderSpan = document.createElement("span");
+      var ladderSpan = document.createElement("span"); // console.log(ladderSpan);
+
       ladderNode.appendChild(ladderSpan);
     }
   }

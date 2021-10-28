@@ -15,10 +15,16 @@
     
     <section>
       <div class="playernames">
-       <label for="name">Enter Name:</label>
+       <label for="name">First Player:</label>
   
-      <input type="text" id="name" name="name">
-      <button name="button" type="button" onclick="dosomething('Hello')">Click Here</button> 
+      <!-- <input type="text" id="firstname" name="name"> -->
+      <input type="text" id="firstname">
+      <!-- <button name="button" type="button" id="btnClick" onclick="clickEvent()">Click Here</button>  -->
+
+      <label for="name">Second Player:</label>
+  
+      <input type="text" id="secondname" >
+      <button name="button" type="button" id="btnClick" onclick="clickEvent()">Click Here</button> 
     </div>
 
       <div class="board">
@@ -346,11 +352,12 @@
     <p></p> -->
 
    <section>
-    <div class="dice-result-container" id="player-name">Dice score:
-      <button class="button button-1 js-button-1" onClick="SnakeAndLadderBoard.playerOne()"></button>
-      <button class="button button-2 js-button-2" onClick="SnakeAndLadderBoard.playerTwo()">Rit</button>
+    <div class="dice-result-container" id="player-name">Dice score: 
+      <span class="js-dice-result dice-result"></span>
+      <button class="button button-1 js-button-1" onClick="SnakeAndLadderBoard.playerOne()">First Player</button>
+      <button class="button button-2 js-button-2" onClick="SnakeAndLadderBoard.playerTwo()">Second Player</button>
         <!-- <span class="js-dice-result dice-result"></span> -->
-        <span class="js-dice-result dice-result"></span>
+       
       </div>
    
     </section>
