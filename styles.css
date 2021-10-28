@@ -1,11 +1,9 @@
 :root {
-    --coins-color: transparent;
+
     --board-maroon: #e56567;
     --board-green: #609217;
     --board-pink: #ffc0cb;
     --board-blue: #00adff;
-    --board-off-white: #f8f8ff; 
-    /* --zIndex-1: 100;  */
     --zIndex-2: 100;
   }
   
@@ -38,7 +36,8 @@
     z-index: 100;
     background-color: var(--board-maroon);
   }
-  
+
+  /*Logic to make a colourful board*/  
   .board-item:nth-child(3n + 1) {
     background-color: var(--board-green);
   }
@@ -50,14 +49,9 @@
     background-color: var(--board-pink);
   }
   
-
-  
   
   .players {
     display: flex;
-    /* justify-content: space-between; */
-    /* justify-content: space-around; */
-    /* padding-left: 100px; */
     width: 50vw;
     margin: 20px;
     font-size: 20px;
@@ -77,7 +71,6 @@
   }
   
   .button {
-    /* margin-top: 50px; */
     cursor: pointer;
     border: 1px solid;
     background-color: blue;

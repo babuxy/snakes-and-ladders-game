@@ -113,47 +113,21 @@ var SnakeAndLadderBoard = (function() {
     }
   }
 
-  // function playerOne() {
-  //   //To roll the dice
-  //   const number = rollDice();
-
-  //   //To claar the previous position
-  //   clearPreviousPosition(playerOneScore);
-
-  //   //To show player is active or inactive based on dice number
-  //   let { active, inactive } = getActivePlayer(number, 1);
-  //   showActiveInactivePlayer(active, inactive);
-
-  //   //To show the results on side(Need to fix this)
-  //   document.querySelector(".js-dice-result").innerHTML = number + "  player 1";
-
-  //   playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
-  //   playerOneScore = getScoreOnSnakeAndLadder(playerOneScore);
-
-  //   if (playerOneScore === 100) {
-  //     alert("player 1 is winner");
-  //   } else {
-  //     let getNewBoardItem = `.board-item-${playerOneScore}`;
-  //     document
-  //       .querySelector(getNewBoardItem)
-  //       .style.setProperty("--coins-color", "red");
-  //   }
-  // }
-
+  
   const playerOne = () => {
-      //To roll the dice
+        //Begin roll dice
       const number = rollDice();
   
-      //To claar the previous position
+      //To clear the previous position
       clearPreviousPosition(playerOneScore);
   
-      //To show player is active or inactive based on dice number
+      //To show player is active or inactive
       let { active, inactive } = getActivePlayer(number, 1);
       showActiveInactivePlayer(active, inactive);
   
-      //To show the results on side(Need to fix this)
-      // document.querySelector(".js-dice-result").innerHTML = number + "  Barnali";
-      document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
+     //Display scores
+      document.querySelector(".js-dice-result").innerHTML = number + "  Barnali";
+      // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
   
       playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
       playerOneScore = getScoreOnSnakeAndLadder(playerOneScore);
@@ -168,18 +142,18 @@ var SnakeAndLadderBoard = (function() {
       }
     }
 
-  function playerTwo() {
-    //To roll the dice
+  const playerTwo = () => {
+    //Begin roll dice
     const number = rollDice();
 
-    //To claar the previous position
+    //To clear the previous position
     clearPreviousPosition(playerTwoScore);
 
-    //To show player is active or inactive based on dice number
+    //To show player is active or inactive
     let { active, inactive } = getActivePlayer(number, 2);
     showActiveInactivePlayer(active, inactive);
 
-    //To show the results on side(Need to fix this)
+    //Display scores
     document.querySelector(".js-dice-result").innerHTML = number + " Rit";
 
     playerTwoScore = checkScoreGreaterThan100(playerTwoScore, number);
@@ -195,6 +169,8 @@ var SnakeAndLadderBoard = (function() {
     }
   }
 
+
+  // Need help to create ladder
   function createLadder(ladderClass, noOfSteps) {
     const ladderNode = document.querySelector(ladderClass);
     for (i = 0; i < noOfSteps; i++) {

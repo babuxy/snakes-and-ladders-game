@@ -1,18 +1,12 @@
 "use strict";
 
-// const player3Name = document.getElementById("fullName3").onclick = () =>{
-// 	// var name = prompt("Enter your name");
-//    document.getElementById("player3").innerHTML = fullName3;
-//    console.log(fullName);
-//    return fullName3;
-// }
-var SnakeAndLadderBoardGameGame = function () {
+var SnakeAndLadderBoard = function () {
   function rollDice() {
     return Math.floor(Math.random() * 6 + 1);
   }
 
-  var playerOneScore = 0,
-      playerTwoScore = 0;
+  var playerOneScore = 0;
+  var playerTwoScore = 0;
 
   function checkScoreGreaterThan100(score, number) {
     if (score + number > 100) {
@@ -132,42 +126,22 @@ var SnakeAndLadderBoardGameGame = function () {
       var getBoardItem = ".board-item-".concat(score);
       return document.querySelector(getBoardItem).style.setProperty("--coins-color", "transparent");
     }
-  } // function playerOne() {
-  //   //To roll the dice
-  //   const number = rollDice();
-  //   //To claar the previous position
-  //   clearPreviousPosition(playerOneScore);
-  //   //To show player is active or inactive based on dice number
-  //   let { active, inactive } = getActivePlayer(number, 1);
-  //   showActiveInactivePlayer(active, inactive);
-  //   //To show the results on side(Need to fix this)
-  //   document.querySelector(".js-dice-result").innerHTML = number + "  player 1";
-  //   playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
-  //   playerOneScore = getScoreOnSnakeAndLadder(playerOneScore);
-  //   if (playerOneScore === 100) {
-  //     alert("player 1 is winner");
-  //   } else {
-  //     let getNewBoardItem = `.board-item-${playerOneScore}`;
-  //     document
-  //       .querySelector(getNewBoardItem)
-  //       .style.setProperty("--coins-color", "red");
-  //   }
-  // }
-
+  }
 
   var playerOne = function playerOne() {
-    //To roll the dice
-    var number = rollDice(); //To claar the previous position
+    //Begin roll dice
+    var number = rollDice(); //To clear the previous position
 
-    clearPreviousPosition(playerOneScore); //To show player is active or inactive based on dice number
+    clearPreviousPosition(playerOneScore); //To show player is active or inactive
 
     var _getActivePlayer = getActivePlayer(number, 1),
         active = _getActivePlayer.active,
         inactive = _getActivePlayer.inactive;
 
-    showActiveInactivePlayer(active, inactive); //To show the results on side(Need to fix this)
+    showActiveInactivePlayer(active, inactive); //Display scores
 
-    document.querySelector(".js-dice-result").innerHTML = number + "  Barnali";
+    document.querySelector(".js-dice-result").innerHTML = number + "  Barnali"; // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
+
     playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
     playerOneScore = getScoreOnSnakeAndLadder(playerOneScore);
 
@@ -179,17 +153,17 @@ var SnakeAndLadderBoardGameGame = function () {
     }
   };
 
-  function playerTwo() {
-    //To roll the dice
-    var number = rollDice(); //To claar the previous position
+  var playerTwo = function playerTwo() {
+    //Begin roll dice
+    var number = rollDice(); //To clear the previous position
 
-    clearPreviousPosition(playerTwoScore); //To show player is active or inactive based on dice number
+    clearPreviousPosition(playerTwoScore); //To show player is active or inactive
 
     var _getActivePlayer2 = getActivePlayer(number, 2),
         active = _getActivePlayer2.active,
         inactive = _getActivePlayer2.inactive;
 
-    showActiveInactivePlayer(active, inactive); //To show the results on side(Need to fix this)
+    showActiveInactivePlayer(active, inactive); //Display scores
 
     document.querySelector(".js-dice-result").innerHTML = number + " Rit";
     playerTwoScore = checkScoreGreaterThan100(playerTwoScore, number);
@@ -201,7 +175,7 @@ var SnakeAndLadderBoardGameGame = function () {
       var getNewBoardItem = ".board-item-".concat(playerTwoScore);
       document.querySelector(getNewBoardItem).style.setProperty("--coins-color", "green");
     }
-  }
+  };
 
   function createLadder(ladderClass, noOfSteps) {
     var ladderNode = document.querySelector(ladderClass);
@@ -220,12 +194,12 @@ var SnakeAndLadderBoardGameGame = function () {
 }();
 
 window.addEventListener("load", function (event) {
-  SnakeAndLadderBoardGameGame.createLadder(".ladder-1", 4);
-  SnakeAndLadderBoardGameGame.createLadder(".ladder-2", 7);
-  SnakeAndLadderBoardGameGame.createLadder(".ladder-3", 19);
-  SnakeAndLadderBoardGameGame.createLadder(".ladder-4", 7);
-  SnakeAndLadderBoardGameGame.createLadder(".ladder-5", 7);
-  SnakeAndLadderBoardGameGame.createLadder(".ladder-6", 7);
-  SnakeAndLadderBoardGameGame.createLadder(".ladder-7", 5);
-  SnakeAndLadderBoardGameGame.createLadder(".ladder-8", 6);
+  // SnakeAndLadderBoard.createLadder(".ladder-1", 4);
+  SnakeAndLadderBoard.createLadder(".ladder-2", 7);
+  SnakeAndLadderBoard.createLadder(".ladder-3", 19);
+  SnakeAndLadderBoard.createLadder(".ladder-4", 7);
+  SnakeAndLadderBoard.createLadder(".ladder-5", 7);
+  SnakeAndLadderBoard.createLadder(".ladder-6", 7);
+  SnakeAndLadderBoard.createLadder(".ladder-7", 5);
+  SnakeAndLadderBoard.createLadder(".ladder-8", 6);
 });
