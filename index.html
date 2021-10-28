@@ -12,11 +12,10 @@
 
 <body>
   <div class="container">
+    
     <section>
       <div class="playernames">
-      <h2>HTML Input Text Box</h2>
-
-      <label for="name">Enter Name:</label>
+       <label for="name">Enter Name:</label>
   
       <input type="text" id="name" name="name">
       <button name="button" type="button" onclick="dosomething('Hello')">Click Here</button> 
@@ -343,11 +342,13 @@
         <div class="ladder ladder-8"> </div>
       </div>
     </section>
-   
-    <p></p>
+<!--    
+    <p></p> -->
 
    <section>
     <div class="dice-result-container" id="player-name">Dice score:
+      <button class="button button-1 js-button-1" onClick="SnakeAndLadderBoard.playerOne()"></button>
+      <button class="button button-2 js-button-2" onClick="SnakeAndLadderBoard.playerTwo()">Rit</button>
         <!-- <span class="js-dice-result dice-result"></span> -->
         <span class="js-dice-result dice-result"></span>
       </div>
@@ -358,9 +359,9 @@
     <div class="players">
       <!-- <input type="text" name="fullName3" value = "Player Name 3" id="fullName3" required>
       <input type="text" name="fullName4" value = "Player Name 4" id="fullName4" required>
-      <button class="button button-1 js-button-3" id="player3" onclick=player3Name >`${player3Name}`</button> -->
-      <button class="button button-1 js-button-1" onClick="SnakeAndLadderBoard.playerOne()"></button>
-      <button class="button button-2 js-button-2" onClick="SnakeAndLadderBoard.playerTwo()">Rit</button>
+      <!-- <button class="button button-1 js-button-3" id="player3" onclick=player3Name >`${player3Name}`</button> -->
+      <!-- <button class="button button-1 js-button-1" onClick="SnakeAndLadderBoard.playerOne()"></button> -->
+      <!-- <button class="button button-2 js-button-2" onClick="SnakeAndLadderBoard.playerTwo()">Rit</button>  -->
     </div>
   </section>
  
