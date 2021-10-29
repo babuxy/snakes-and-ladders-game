@@ -8,4 +8,5 @@ Rules are:
 
 //TODO
 1)Accept multiple players.
-2)
+2)Setup starting time. Game begins on first click by first player.
+4)Capture end time. Game ends when one of the player reaches 100.
