@@ -186,13 +186,14 @@ const showActiveInactivePlayer = (active, inactive) => {
       //   document.querySelector(".js-dice-result").innerHTML = "./dice1.png"
       // }
     
-      document.querySelector(".js-dice-result").innerHTML = document.getElementById("firstname").value +"'s score = " + number  + "        " + getDiceImage(number);
+      document.querySelector(".js-dice-result").innerHTML = document.getElementById("firstname").value +"'s score = " + number  + "        " + getDiceImage(number) ;
 
      
       // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
   
       playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
       playerOneScore = getScoreOnSnakeAndLadder(playerOneScore);
+      
   
       if (playerOneScore === 100) {
         alert("player 1 is winner");

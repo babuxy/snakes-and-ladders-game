@@ -1,7 +1,5 @@
 "use strict";
 
-function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
-
 //Getting player Names
 var x,
     y = "";
@@ -9,18 +7,13 @@ var x,
 var clickEvent = function clickEvent() {
   x = document.getElementById("firstname").value;
   y = document.getElementById("secondname").value;
-  alert(x);
+  document.querySelector(".js-button-1").innerHTML = x;
+  document.querySelector(".js-button-2").innerHTML = y; // alert(x);
+
   console.log(x);
   console.log(y);
-};
+}; //https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
 
-var diceImage1 = '<img src="./dice1.png" id="imagesize">';
-var diceImage2 = '<img src="./dice2.png" id="imagesize">';
-var diceImage3 = '<img src="./dice3.png" id="imagesize">';
-var diceImage4 = '<img src="./dice4.png" id="imagesize">';
-var diceImage5 = '<img src="./dice5.png" id="imagesize">';
-var diceImage6 = '<img src="./dice6.png" id="imagesize">';
-var diceImage = ""; //https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
 
 var SnakeAndLadderBoard = function () {
   function rollDice() {
@@ -28,32 +21,42 @@ var SnakeAndLadderBoard = function () {
   }
 
   var playerOneScore = 0;
-  var playerTwoScore = 0;
+  var playerTwoScore = 0; //Dice throw and image display
+
+  var diceImage1 = '<img src="./dice1.png" id="imagesize">';
+  var diceImage2 = '<img src="./dice2.png" id="imagesize">';
+  var diceImage3 = '<img src="./dice3.png" id="imagesize">';
+  var diceImage4 = '<img src="./dice4.png" id="imagesize">';
+  var diceImage5 = '<img src="./dice5.png" id="imagesize">';
+  var diceImage6 = '<img src="./dice6.png" id="imagesize">';
+  var diceImage = "";
 
   var getDiceImage = function getDiceImage(number) {
+    console.log(number);
+
     switch (number) {
       case 1:
-        diceImage = (_readOnlyError("diceImage"), 1);
+        diceImage = '<img src="./dice1.png" id="imagesize">';
         break;
 
       case 2:
-        diceImage = (_readOnlyError("diceImage"), 2);
+        diceImage = '<img src="./dice2.png" id="imagesize">';
         break;
 
       case 3:
-        diceImage = (_readOnlyError("diceImage"), 3);
+        diceImage = '<img src="./dice3.png" id="imagesize">';
         break;
 
       case 4:
-        diceImage = (_readOnlyError("diceImage"), 4);
+        diceImage = '<img src="./dice4.png" id="imagesize">';
         break;
 
       case 5:
-        diceImage = (_readOnlyError("diceImage"), 5);
+        diceImage = '<img src="./dice5.png" id="imagesize">';
         break;
 
       case 6:
-        diceImage = (_readOnlyError("diceImage"), 6);
+        diceImage = '<img src="./dice6.png" id="imagesize">';
         break;
     }
 
@@ -192,8 +195,7 @@ var SnakeAndLadderBoard = function () {
     //   document.querySelector(".js-dice-result").innerHTML = "./dice1.png"
     // }
 
-    document.querySelector(".js-dice-result").innerHTML = document.getElementById("firstname").value + "'s score = " + number + getDiceImage(number);
-    document.querySelector(".js-button-1").innerHTML = x; // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
+    document.querySelector(".js-dice-result").innerHTML = document.getElementById("firstname").value + "'s score = " + number + "        " + getDiceImage(number); // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
 
     playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
     playerOneScore = getScoreOnSnakeAndLadder(playerOneScore);
@@ -222,8 +224,8 @@ var SnakeAndLadderBoard = function () {
     // document.querySelector(".js-dice-result").innerHTML = "Rit" +"'s score = " + number  ;
     // document.querySelector(".js-button-2").innerHTML = "Rit";
 
-    document.querySelector(".js-dice-result").innerHTML = document.getElementById("secondname").value + "'s score = " + number;
-    document.querySelector(".js-button-2").innerHTML = y;
+    document.querySelector(".js-dice-result").innerHTML = document.getElementById("secondname").value + "'s score = " + number + "        " + getDiceImage(number); // document.querySelector(".js-button-2").innerHTML = y;
+
     playerTwoScore = checkScoreGreaterThan100(playerTwoScore, number);
     playerTwoScore = getScoreOnSnakeAndLadder(playerTwoScore);
 
@@ -233,7 +235,7 @@ var SnakeAndLadderBoard = function () {
       var getNewBoardItem = ".board-item-".concat(playerTwoScore);
       document.querySelector(getNewBoardItem).style.setProperty("--coins-color", "green");
     }
-  }; // Dynamic ladder creation 
+  }; // Dynamic ladder creation  + getDiceImage(number)
 
 
   function createLadder(ladderClass, noOfSteps) {
