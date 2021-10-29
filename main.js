@@ -1,34 +1,67 @@
 
+//Getting player Names
 let x, y="";
 const clickEvent = () => {  
    
  x = document.getElementById("firstname").value;  
  y = document.getElementById("secondname").value;  
-  alert(x);
+ document.querySelector(".js-button-1").innerHTML = x;
+ document.querySelector(".js-button-2").innerHTML = y;
+  // alert(x);
 console.log(x);
 console.log(y);
   }  
 
-  const repImage = '<img src="./dice1.png" id="imagesize">';
-  console.log(repImage);
+
+
+  
 
 //https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
 var SnakeAndLadderBoard = (function() {
   function rollDice() {
     return Math.floor(Math.random() * 6 + 1);
+
   }
 
   let playerOneScore = 0;
   let playerTwoScore = 0;
 
-  // function checkScoreGreaterThan100(score, number) {
-  //   if (score + number > 100) {
-  //     score;
-  //   } else {
-  //     score = score + number;
-  //   }
-  //   return score;
-  // }
+  //Dice throw and image display
+
+  let diceImage1 = '<img src="./dice1.png" id="imagesize">';
+  let diceImage2 = '<img src="./dice2.png" id="imagesize">';
+  let diceImage3 = '<img src="./dice3.png" id="imagesize">';
+  let diceImage4 = '<img src="./dice4.png" id="imagesize">';
+  let diceImage5 = '<img src="./dice5.png" id="imagesize">';
+  let diceImage6 = '<img src="./dice6.png" id="imagesize">';
+  let diceImage="";
+
+const getDiceImage = (number) => {
+console.log(number);
+  switch (number) {
+
+    case 1:
+      diceImage ='<img src="./dice1.png" id="imagesize">';
+      break;
+    case 2:
+      diceImage='<img src="./dice2.png" id="imagesize">';
+      break;
+    case 3:
+      diceImage='<img src="./dice3.png" id="imagesize">';
+      break;
+    case 4:
+      diceImage='<img src="./dice4.png" id="imagesize">';
+      break;
+    case 5:
+      diceImage='<img src="./dice5.png" id="imagesize">';
+      break;
+    case 6:
+      diceImage='<img src="./dice6.png" id="imagesize">';
+      break;
+     }console.log(diceImage);
+  return diceImage;
+}; 
+
 
   
   const checkScoreGreaterThan100 = (score, number) => {
@@ -101,19 +134,6 @@ var SnakeAndLadderBoard = (function() {
 
 
 
-//     //Enabling disabling players
-// function showActiveInactivePlayer(active, inactive) {
-//   const buttonOne = document.querySelector(".js-button-1");
-//   const buttonTwo = document.querySelector(".js-button-2");
-//   if (active === 1) {
-//     buttonTwo.classList.add("disabled");
-//     buttonOne.classList.remove("disabled");
-//   } else {
-//     buttonOne.classList.add("disabled");
-//     buttonTwo.classList.remove("disabled");
-//   }
-// }
-  //Enabling disabling players
 const showActiveInactivePlayer = (active, inactive) => {
   const buttonOne = document.querySelector(".js-button-1");
   const buttonTwo = document.querySelector(".js-button-2");
@@ -126,14 +146,14 @@ const showActiveInactivePlayer = (active, inactive) => {
   }
 }
 
-  function getActivePlayer(number, playerNumber) {
+  const getActivePlayer = (number, playerNumber) => {
     let active = number === 6 ? playerNumber : playerNumber % 2 + 1;
     let inactive = active % 2 + 1;
 
     return { active, inactive };
   }
 
-  function clearPreviousPosition(score) {
+  const clearPreviousPosition = (score) => {
     // console.log(score);
     if (score > 0) {
       let getBoardItem = `.board-item-${score}`;
@@ -144,13 +164,17 @@ const showActiveInactivePlayer = (active, inactive) => {
     }
   }
 
+
+
   
   const playerOne = () => {
         //Begin roll dice
-      const number = rollDice();
+        const number = rollDice();
   
       //To clear the previous position
       clearPreviousPosition(playerOneScore);
+
+      
   
       //To show player is active or inactive
       let { active, inactive } = getActivePlayer(number, 1);
@@ -161,9 +185,10 @@ const showActiveInactivePlayer = (active, inactive) => {
       // if(number <= 6) {
       //   document.querySelector(".js-dice-result").innerHTML = "./dice1.png"
       // }
-      document.querySelector(".js-dice-result").innerHTML = document.getElementById("firstname").value +"'s score = " + number  + repImage;
+    
+      document.querySelector(".js-dice-result").innerHTML = document.getElementById("firstname").value +"'s score = " + number  + "        " + getDiceImage(number);
 
-      document.querySelector(".js-button-1").innerHTML = x;
+     
       // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
   
       playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
@@ -181,7 +206,8 @@ const showActiveInactivePlayer = (active, inactive) => {
 
   const playerTwo = () => {
     //Begin roll dice
-    const number = rollDice();
+    // const number = rollDice();
+    number = rollDice();
 
     //To clear the previous position
     clearPreviousPosition(playerTwoScore);
@@ -196,7 +222,7 @@ const showActiveInactivePlayer = (active, inactive) => {
 
     // document.querySelector(".js-button-2").innerHTML = "Rit";
 
-    document.querySelector(".js-dice-result").innerHTML = document.getElementById("secondname").value +"'s score = " + number  ;
+    document.querySelector(".js-dice-result").innerHTML = document.getElementById("secondname").value +"'s score = " + number  + "        " + getDiceImage(number) ;
 
     document.querySelector(".js-button-2").innerHTML = y;
 
@@ -214,7 +240,7 @@ const showActiveInactivePlayer = (active, inactive) => {
   }
 
 
-  // Dynamic ladder creation 
+  // Dynamic ladder creation  + getDiceImage(number)
   function createLadder(ladderClass, noOfSteps) {
     const ladderNode = document.querySelector(ladderClass);
     for (i = 0; i < noOfSteps; i++) {
@@ -226,9 +252,6 @@ const showActiveInactivePlayer = (active, inactive) => {
 
   return { playerOne, playerTwo, createLadder };
 })();
-
-
-
 
 
 window.addEventListener("load", function(event) {

@@ -1,11 +1,27 @@
 "use strict";
 
-// function hello(){  
-//   var x = document.getElementById("name").value;
-//   alert(x);
-// console.log(x);
-//   }  
-//https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
+function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
+
+//Getting player Names
+var x,
+    y = "";
+
+var clickEvent = function clickEvent() {
+  x = document.getElementById("firstname").value;
+  y = document.getElementById("secondname").value;
+  alert(x);
+  console.log(x);
+  console.log(y);
+};
+
+var diceImage1 = '<img src="./dice1.png" id="imagesize">';
+var diceImage2 = '<img src="./dice2.png" id="imagesize">';
+var diceImage3 = '<img src="./dice3.png" id="imagesize">';
+var diceImage4 = '<img src="./dice4.png" id="imagesize">';
+var diceImage5 = '<img src="./dice5.png" id="imagesize">';
+var diceImage6 = '<img src="./dice6.png" id="imagesize">';
+var diceImage = ""; //https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
+
 var SnakeAndLadderBoard = function () {
   function rollDice() {
     return Math.floor(Math.random() * 6 + 1);
@@ -14,7 +30,38 @@ var SnakeAndLadderBoard = function () {
   var playerOneScore = 0;
   var playerTwoScore = 0;
 
-  function checkScoreGreaterThan100(score, number) {
+  var getDiceImage = function getDiceImage(number) {
+    switch (number) {
+      case 1:
+        diceImage = (_readOnlyError("diceImage"), 1);
+        break;
+
+      case 2:
+        diceImage = (_readOnlyError("diceImage"), 2);
+        break;
+
+      case 3:
+        diceImage = (_readOnlyError("diceImage"), 3);
+        break;
+
+      case 4:
+        diceImage = (_readOnlyError("diceImage"), 4);
+        break;
+
+      case 5:
+        diceImage = (_readOnlyError("diceImage"), 5);
+        break;
+
+      case 6:
+        diceImage = (_readOnlyError("diceImage"), 6);
+        break;
+    }
+
+    console.log(diceImage);
+    return diceImage;
+  };
+
+  var checkScoreGreaterThan100 = function checkScoreGreaterThan100(score, number) {
     if (score + number > 100) {
       score;
     } else {
@@ -22,7 +69,7 @@ var SnakeAndLadderBoard = function () {
     }
 
     return score;
-  }
+  };
 
   var getScoreOnSnakeAndLadder = function getScoreOnSnakeAndLadder(score) {
     switch (score) {
@@ -96,20 +143,7 @@ var SnakeAndLadderBoard = function () {
     }
 
     return score;
-  }; //     //Enabling disabling players
-  // function showActiveInactivePlayer(active, inactive) {
-  //   const buttonOne = document.querySelector(".js-button-1");
-  //   const buttonTwo = document.querySelector(".js-button-2");
-  //   if (active === 1) {
-  //     buttonTwo.classList.add("disabled");
-  //     buttonOne.classList.remove("disabled");
-  //   } else {
-  //     buttonOne.classList.add("disabled");
-  //     buttonTwo.classList.remove("disabled");
-  //   }
-  // }
-  //Enabling disabling players
-
+  };
 
   var showActiveInactivePlayer = function showActiveInactivePlayer(active, inactive) {
     var buttonOne = document.querySelector(".js-button-1");
@@ -124,24 +158,23 @@ var SnakeAndLadderBoard = function () {
     }
   };
 
-  function getActivePlayer(number, playerNumber) {
+  var getActivePlayer = function getActivePlayer(number, playerNumber) {
     var active = number === 6 ? playerNumber : playerNumber % 2 + 1;
     var inactive = active % 2 + 1;
     return {
       active: active,
       inactive: inactive
     };
-  }
+  };
 
-  function clearPreviousPosition(score) {
-    console.log(score);
-
+  var clearPreviousPosition = function clearPreviousPosition(score) {
+    // console.log(score);
     if (score > 0) {
       var getBoardItem = ".board-item-".concat(score);
       console.log(getBoardItem);
       return document.querySelector(getBoardItem).style.setProperty("--coins-color", "transparent");
     }
-  }
+  };
 
   var playerOne = function playerOne() {
     //Begin roll dice
@@ -155,9 +188,12 @@ var SnakeAndLadderBoard = function () {
 
     showActiveInactivePlayer(active, inactive); //Display scores
     // document.querySelector(".js-dice-result").innerHTML = number + " Barnali" + document.getElementById("name").value;
+    // if(number <= 6) {
+    //   document.querySelector(".js-dice-result").innerHTML = "./dice1.png"
+    // }
 
-    document.querySelector(".js-dice-result").innerHTML = number + document.getElementById("name").value;
-    document.querySelector(".js-button-1").innerHTML = document.getElementById("name").value; // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
+    document.querySelector(".js-dice-result").innerHTML = document.getElementById("firstname").value + "'s score = " + number + getDiceImage(number);
+    document.querySelector(".js-button-1").innerHTML = x; // document.querySelector(".js-dice-result").innerHTML = number + `${document.getElementById("player-name").innerHTML}  Barnali`;
 
     playerOneScore = checkScoreGreaterThan100(playerOneScore, number);
     playerOneScore = getScoreOnSnakeAndLadder(playerOneScore);
@@ -172,7 +208,8 @@ var SnakeAndLadderBoard = function () {
 
   var playerTwo = function playerTwo() {
     //Begin roll dice
-    var number = rollDice(); //To clear the previous position
+    // const number = rollDice();
+    number = rollDice(); //To clear the previous position
 
     clearPreviousPosition(playerTwoScore); //To show player is active or inactive
 
@@ -181,8 +218,12 @@ var SnakeAndLadderBoard = function () {
         inactive = _getActivePlayer2.inactive;
 
     showActiveInactivePlayer(active, inactive); //Display scores
+    // document.querySelector(".js-dice-result").innerHTML = number + " Rit";
+    // document.querySelector(".js-dice-result").innerHTML = "Rit" +"'s score = " + number  ;
+    // document.querySelector(".js-button-2").innerHTML = "Rit";
 
-    document.querySelector(".js-dice-result").innerHTML = number + " Rit";
+    document.querySelector(".js-dice-result").innerHTML = document.getElementById("secondname").value + "'s score = " + number;
+    document.querySelector(".js-button-2").innerHTML = y;
     playerTwoScore = checkScoreGreaterThan100(playerTwoScore, number);
     playerTwoScore = getScoreOnSnakeAndLadder(playerTwoScore);
 

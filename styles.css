@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700");
+
 :root {
  
     /* --coins-color: transparent; */
@@ -6,21 +8,26 @@
     --board-pink: #ffc0cb;
     --board-blue: #00adff;
     --zIndex-2: 100;
+    
   }
   
   .container {
     max-width: 1000px;
     margin: 0 auto;
+    margin-top: 20px;
+    margin-left: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 9fr 1fr;
     grid-gap: 20px;
+    font-family: "Oswald", sans-serif;
   }
   
   .board {
     width: 700px;
     height: 700px;
     margin: 0px;
+    margin-top: 10px;;
     border: 1px solid black;
     display: grid;
     grid-template: repeat(10, 70px) / repeat(10, 70px);
@@ -67,16 +74,35 @@
     /* border-radius: 50%; */
     background-color: var(--coins-color);
   }
+
+  .dice-result-container {
+    font-weight:lighter;
+    font-size: 20px;
+    width:500px;
+    font-family: "Oswald", sans-serif;
+    margin-left: 0;
+
+  }
   
   .dice-result {
-    font-weight: bold;
-    font-size: 30px;
-    /* width:30px; */
+    font-weight:lighter;
+    font-size: 20px;
+    width:70px;
+    font-family: "Oswald", sans-serif;
+
+  } */
+
+   .js-dice-result {
+    font-weight:lighter;
+    font-size: 20px;
+    width:100px;
+    font-family: "Oswald", sans-serif;
+
   }
   
   #imagesize {  
-    width:50px;  
-    height:50px;  
+    width:30px;  
+    height:30px;  
     }  
 
   
