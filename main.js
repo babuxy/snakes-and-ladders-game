@@ -12,12 +12,10 @@ console.log(x);
 console.log(y);
   }  
 
-
-
-  
+ 
 
 //https://teamtreehouse.com/community/how-does-mathfloormathrandom-6-1-work -> dice logic
-var SnakeAndLadderBoard = (function() {
+const SnakeAndLadderBoard = (function() {
   function rollDice() {
     return Math.floor(Math.random() * 6 + 1);
 
@@ -242,7 +240,7 @@ const showActiveInactivePlayer = (active, inactive) => {
 
 
   // Dynamic ladder creation  + getDiceImage(number)
-  function createLadder(ladderClass, noOfSteps) {
+  const createLadder = (ladderClass, noOfSteps) => {
     const ladderNode = document.querySelector(ladderClass);
     for (i = 0; i < noOfSteps; i++) {
       const ladderSpan = document.createElement("span");

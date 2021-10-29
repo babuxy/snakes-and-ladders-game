@@ -238,7 +238,7 @@ var SnakeAndLadderBoard = function () {
   }; // Dynamic ladder creation  + getDiceImage(number)
 
 
-  function createLadder(ladderClass, noOfSteps) {
+  var createLadder = function createLadder(ladderClass, noOfSteps) {
     var ladderNode = document.querySelector(ladderClass);
 
     for (i = 0; i < noOfSteps; i++) {
@@ -246,7 +246,7 @@ var SnakeAndLadderBoard = function () {
 
       ladderNode.appendChild(ladderSpan);
     }
-  }
+  };
 
   return {
     playerOne: playerOne,
