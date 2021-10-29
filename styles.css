@@ -7,7 +7,7 @@
     --board-green: #609217;
     --board-pink: #ffc0cb;
     --board-blue: #00adff;
-    --zIndex-2: 100;
+    --zIndex-2: 100; /*z-index property specifies the stack order of an element.*/
     
   }
   

@@ -167,23 +167,21 @@ const showActiveInactivePlayer = (active, inactive) => {
   
   const playerOne = () => {
         //Begin roll dice
-        const number = rollDice();
+      number = rollDice();
   
       //To clear the previous position
       clearPreviousPosition(playerOneScore);
 
-      
-  
       //To show player is active or inactive
       let { active, inactive } = getActivePlayer(number, 1);
       showActiveInactivePlayer(active, inactive);
   
-     //Display scores
+  
       // document.querySelector(".js-dice-result").innerHTML = number + " Barnali" + document.getElementById("name").value;
       // if(number <= 6) {
       //   document.querySelector(".js-dice-result").innerHTML = "./dice1.png"
       // }
-    
+       //Display scores
       document.querySelector(".js-dice-result").innerHTML = document.getElementById("firstname").value +"'s score = " + number  + "        " + getDiceImage(number) ;
 
      
