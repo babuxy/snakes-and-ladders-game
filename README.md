@@ -13,3 +13,4 @@ Rules are:
 2)Setup starting time. Game begins on first click by first player.
 3)Capture end time. Game ends when one of the player reaches 100.
 4)Display a gif throwing dice
+5)Dislay what is the current position of the players on the board.
