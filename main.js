@@ -224,7 +224,7 @@ const showActiveInactivePlayer = (active, inactive) => {
 
     document.querySelector(".js-dice-result").innerHTML = document.getElementById("secondname").value +"'s score = " + number  + "        " + getDiceImage(number) ;
 
-    document.querySelector(".js-button-2").innerHTML = y;
+    // document.querySelector(".js-button-2").innerHTML = y;
 
     playerTwoScore = checkScoreGreaterThan100(playerTwoScore, number);
     playerTwoScore = getScoreOnSnakeAndLadder(playerTwoScore);
